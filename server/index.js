@@ -19,11 +19,19 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// app.get('/api/products', (req, res, next) => {
-//   db.query()
-//     .then(result => res.json(result.rows))
-//     .catch(err => next(err));
-// });
+const products = `
+  select "productId"
+         "name"
+         "price"
+         "image"
+         "short description"
+  from "products"
+`;
+app.get('/api/products', (req, res, next) => {
+  db.query(products)
+    .then(result => res.json(result.rows))
+    .catch(err => next(err));
+});
 
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
