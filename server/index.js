@@ -20,10 +20,10 @@ app.get('/api/health-check', (req, res, next) => {
 });
 
 const products = `
-  select "productId"
-         "name"
-         "price"
-         "image"
+  select "productId",
+         "name",
+         "price",
+         "image",
          "short description"
   from "products"
 `;
