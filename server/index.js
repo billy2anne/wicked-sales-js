@@ -19,15 +19,15 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
-const products = `
+app.get('/api/products', (req, res, next) => {
+  const products = `
   select "productId",
          "name",
          "price",
          "image",
-         "short description"
+         "shortDescription"
   from "products"
 `;
-app.get('/api/products', (req, res, next) => {
   db.query(products)
     .then(result => res.json(result.rows))
     .catch(err => next(err));
