@@ -3,6 +3,10 @@ header{
   color: white;
 }
 
+body{
+  background-color:#f8f9fa;
+}
+
 .header-contents{
   padding: 1rem;
   font-size: 15px;
@@ -12,5 +16,26 @@ header{
   flex-wrap: wrap ;
   margin: 1rem;
   padding: 1rem;
-  border: 2px solid black;
+  border: 2px solid #eaeaea;
+  background-color: white ;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.price{
+  color: gray;
+}
+
+.name{
+  font-style: normal;
+  font-weight: bold
+}
+
+.price, .description, .name{
+  font-size: 12px;
+  padding: 8px;
 }

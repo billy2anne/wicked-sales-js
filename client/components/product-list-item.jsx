@@ -6,13 +6,15 @@ export default class ProductListItem extends React.Component {
     return (
       <div className="card-container col-3 ">
         <div className="image">
-          {this.props.image}
+          <img src={this.props.product.image}/>
         </div>
-        <div>
+        <div className="name">
           {this.props.name}
         </div>
+        <div className="price">
           ${this.props.price}
-        <div>
+        </div>
+        <div className="description">
           {this.props.shortDescription}
         </div>
       </div>

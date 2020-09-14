@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <header className="header">
-        <div className="header-contents col-2">
+        <div className="header-contents">
           <span>
             <i className="fas fa-dollar-sign"></i>
           </span>
