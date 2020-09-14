@@ -1,6 +1,16 @@
-.header{
-  /* height: 30%; */
-  border: 1px solid black;
+header{
   background-color:#343a40;
   color: white;
+}
+
+.header-contents{
+  padding: 1rem;
+  font-size: 15px;
+}
+
+.card-container{
+  flex-wrap: wrap ;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid black;
 }
