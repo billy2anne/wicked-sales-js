@@ -8,6 +8,7 @@ export default class ProductList extends React.Component {
     this.state = {
       products: []
     };
+    this.setView = this.setView.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,7 @@ export default class ProductList extends React.Component {
 
     const products = this.state.products.map(product =>
       <ProductListItem
+        setView = {this.setView}
         product={product}
         key={product.productId}
         name={product.name}
