@@ -8,7 +8,7 @@ export default class ProductList extends React.Component {
     this.state = {
       products: []
     };
-    this.setView = this.setView.bind(this);
+    this.setViewDetails = this.setViewDetails.bind(this);
   }
 
   componentDidMount() {
@@ -23,17 +23,21 @@ export default class ProductList extends React.Component {
       });
   }
 
-  render() {
+  setViewDetails(e) {
+    const productId = e.currentTarget.getAttribute('id');
+    this.props.setView('details', { productId });
+  }
 
+  render() {
     const products = this.state.products.map(product =>
       <ProductListItem
-        setView = {this.setView}
         product={product}
         key={product.productId}
         name={product.name}
         price={product.price}
         shortDescription={product.shortDescription}
         productId={product.productId}
+        setViewDetails={this.setViewDetails}
       />);
 
     return (

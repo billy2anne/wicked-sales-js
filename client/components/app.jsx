@@ -18,18 +18,20 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/health-check')
-      .then(res => res.json())
-      .then(data => this.setState({ message: data.message || data.error }))
-      .catch(err => this.setState({ message: err.message }))
-      .finally(() => this.setState({ isLoading: false }));
+    // fetch('/api/health-check')
+    //   .then(res => res.json())
+    //   .then(data => this.setState({ message: data.message || data.error }))
+    //   .catch(err => this.setState({ message: err.message }))
+    //   .finally(() => this.setState({ isLoading: false }));
   }
 
   setView(name, params) {
     this.setState({
-      name: 'details',
-      params: {
-        productId: this.props.product.productId
+      view: {
+        name: name,
+        params: {
+          productId: params
+        }
       }
     });
   }
@@ -41,7 +43,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header/>
-          <ProductList view ={this.setView}/>
+          <ProductList setView ={this.setView}/>
         </div>
       );
     } else if (viewType === 'details') {
