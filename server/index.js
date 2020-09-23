@@ -62,6 +62,29 @@ app.get('/api/products/:id', (req, res, next) => {
   }
 });
 
+app.get('/api/cart', (req, res, next) => {
+  const cartSql = `
+  select "cartItems"."cartItemId",
+         "cartItems"."price",
+         "products"."productId",
+         "products"."image",
+         "products"."name",
+         "products"."shortDescription"
+   join "products" using ("productId")
+   where "cartItems"."cartId" = $1
+  `;
+  if (!req.session.cartId) {
+    return res.json([]);
+  }
+  const value = [req.session.cartId];
+  db.query(cartSql, value)
+    .then(result => {
+      const data = result.rows;
+      res.status(200).json(data);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
