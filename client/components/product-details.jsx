@@ -45,6 +45,7 @@ export default class ProductDetails extends React.Component {
             </div>
           </div>
           <div className="longDescription">{this.state.product.longDescription}</div>
+          <button onClick={this.addToCart}>Add to Cart</button>
         </>
       );
     }
