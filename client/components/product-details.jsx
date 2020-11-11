@@ -18,6 +18,10 @@ export default class ProductDetails extends React.Component {
       });
   }
 
+  addToCart() {
+    this.props.addToCart(this.state.product);
+  }
+
   setView(e) {
     this.props.view('catalog', {});
   }
