@@ -1,17 +1,18 @@
 import React from 'react';
 
-export default class Header extends React.Component {
+export default function Header(props) {
 
-  render() {
-    return (
-      <header className="header">
-        <div className="header-contents">
-          <span>
-            <i className="fas fa-dollar-sign"></i>
-          </span>
-          Wicked Sales
-        </div>
-      </header>
-    );
-  }
+  return (
+    <header className="header">
+      <div className="header-contents">
+        <span>
+          <i className="fas fa-dollar-sign"></i>
+        </span>
+        Wicked Sales
+      </div>
+      <a onClick={() => props.setView('cart', {})}>items {`${props.cartItemCount}`}
+        <i className="fas fa-shopping-cart"></i>
+      </a>
+    </header>
+  );
 }

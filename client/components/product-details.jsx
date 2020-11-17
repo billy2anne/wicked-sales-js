@@ -8,6 +8,7 @@ export default class ProductDetails extends React.Component {
       product: null
     };
     this.setView = this.setView.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -16,6 +17,10 @@ export default class ProductDetails extends React.Component {
       .then(data => {
         this.setState({ product: data });
       });
+  }
+
+  addToCart() {
+    this.props.addToCart(this.state.product);
   }
 
   setView(e) {
@@ -40,6 +45,7 @@ export default class ProductDetails extends React.Component {
             </div>
           </div>
           <div className="longDescription">{this.state.product.longDescription}</div>
+          <button onClick={this.addToCart}>Add to Cart</button>
         </>
       );
     }
