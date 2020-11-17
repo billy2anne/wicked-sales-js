@@ -10,7 +10,9 @@ export default function Header(props) {
         </span>
         Wicked Sales
       </div>
-      <a onClick={() => props.setView('cart', {})}>items {`${props.cartItemCount}`}</a>
+      <a onClick={() => props.setView('cart', {})}>items {`${props.cartItemCount}`}
+        <i className="fas fa-shopping-cart"></i>
+      </a>
     </header>
   );
 }
