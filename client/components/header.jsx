@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function Header(props) {
-
   return (
     <header className="header">
       <div className="header-contents">
@@ -10,8 +9,9 @@ export default function Header(props) {
         </span>
         Wicked Sales
       </div>
-      <a onClick={() => props.setView('cart', {})}>items {`${props.cartItemCount}`}
-        <i className="fas fa-shopping-cart"></i>
+      <a>
+        items {`${props.cartItemCount}`}
+        <i className="fas fa-shopping-cart" onClick={() => props.view('cart', {})} ></i>
       </a>
     </header>
   );
