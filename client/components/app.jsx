@@ -69,7 +69,6 @@ export default class App extends React.Component {
 
   render() {
     const viewType = this.state.view.name;
-
     if (viewType === 'catalog') {
       return (
         <div>
@@ -98,5 +97,4 @@ export default class App extends React.Component {
       );
     }
   }
-
 }
