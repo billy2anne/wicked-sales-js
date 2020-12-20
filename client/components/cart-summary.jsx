@@ -29,7 +29,10 @@ export default function CartSummary(props) {
       <a onClick={() => props.view('catalog', {})} className="row my-3 back text-muted">&lt; Back to catalog</a>
       <h2 className="row mb-4">My Cart</h2>
       {cartView}
-      <h3 className="row pb-3">Item Total:${total / 100}</h3>
+      <h3 className="row pb-3">
+        Item Total:${total / 100}
+        <button>Place Order</button>
+      </h3>
     </div>
   );
 }
