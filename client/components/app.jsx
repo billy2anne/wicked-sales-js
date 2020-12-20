@@ -77,6 +77,12 @@ export default class App extends React.Component {
         creditCard: object.card,
         shippingAddress: object.address
       })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ cart: [] });
+          this.setView('catalog', {});
+        })
+        .catch(err => console.error(err))
     });
   }
 
