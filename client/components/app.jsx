@@ -42,7 +42,7 @@ export default class App extends React.Component {
   }
 
   addToCart(product) {
-    fetch('api/cart', {
+    fetch('/api/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -65,6 +65,18 @@ export default class App extends React.Component {
           cart: data
         });
       });
+  }
+
+  placeOrder(object) {
+    fetch('/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: object.name,
+        creditCard: object.card,
+        shippingAddress: object.address
+      })
+    });
   }
 
   render() {
