@@ -40,7 +40,7 @@ export default class ProductDetails extends React.Component {
             <img src={this.state.product.image} className="detailsImage col-6" />
             <div className="detailsContentcontainer col-6">
               <h1 className="nameProductDetails">{this.state.product.name}</h1>
-              <div className="price">${this.state.product.price}</div>
+              <div className="price">${(this.state.product.price / 100).toFixed(2)}</div>
               <div className="description">{this.state.product.shortDescription}</div>
             </div>
           </div>

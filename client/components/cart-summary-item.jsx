@@ -1,16 +1,16 @@
 import React from 'react';
 
-export default function CartSummaryItem(props) {
-  const totalPrice = this.props.CartItem.price;
-
+export default function CartSummaryItem(item) {
   return (
-    <>
-      <div>
-        Cart Summary Page
+    <div className="row justify-content-center col-12 card mb-2">
+      <div className="col-4">
+        <img className="card-image" src={item.img} alt={item.short} />
       </div>
-      <div>
-        {totalPrice}
+      <div className="col-8">
+        <h5 className="card-title">{item.name}</h5>
+        <p>${(item.price / 100).toFixed(2)}</p>
+        <p className="card-text">{item.short}</p>
       </div>
-    </>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ export default class ProductListItem extends React.Component {
           {this.props.name}
         </div>
         <div className="price">
-          ${this.props.price}
+          ${(this.props.price / 100).toFixed(2)}
         </div>
         <div className="description">
           {this.props.shortDescription}
