@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
+import CartSummaryItem from './cart-summary-item';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -86,6 +87,13 @@ export default class App extends React.Component {
             viewParams={this.state.view.params}
             addToCart={this.addToCart}
           />
+        </div>
+      );
+    } else if (viewType === 'cart') {
+      return (
+        <div>
+          <Header cartItemcCount={this.state.cart.length}/>
+          <CartSummaryItem/>
         </div>
       );
     }
