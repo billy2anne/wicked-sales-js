@@ -151,6 +151,35 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.post('/api/orders', (req, res, next) => {
+  const { name, creditCard, shippingAddress } = req.body;
+  const { cartId } = req.session;
+  if (!cartId) {
+    return res.status(400).json(({ error: 'cartId not found' }));
+  }
+  if (!name || !creditCard || !shippingAddress) {
+    return res.status(400).json({ error: 'Please type in address, credit card, and shipping address in the proper fields' });
+  }
+
+  const inputOrder = `
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+    values ($1, $2, $3, $4)
+    returning "orderId",
+              "createdAt",
+              "name",
+              "creditCard",
+              "shippingAddress"
+    `;
+
+  const values = [cartId, name, creditCard, shippingAddress];
+  db.query(inputOrder, values)
+    .then(data => {
+      delete req.session.cartId;
+      res.status(201).json(data.rows[0]);
+    })
+    .catch(err => next(err));
+});
+
 app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
