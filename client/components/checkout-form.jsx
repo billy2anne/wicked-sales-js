@@ -9,7 +9,6 @@ export default class CheckoutForm extends React.Component {
       card: '',
       address: ''
     };
-    this.setView = this.setView.bind(this);
-    this.addToCart = this.addToCart.bind(this);
+
   }
 }

@@ -31,7 +31,7 @@ export default function CartSummary(props) {
       {cartView}
       <h3 className="row pb-3">
         Item Total:${total / 100}
-        <button>Place Order</button>
+        <button onClick={() => props.view('checkout', {})}>Place Order</button>
       </h3>
     </div>
   );
