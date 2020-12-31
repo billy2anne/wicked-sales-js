@@ -74,16 +74,16 @@ export default class App extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: object.name,
-        creditCard: object.creditCard,
-        shippingAddress: object.shippingAddress
+        creditCard: object.card,
+        shippingAddress: object.address
       })
-        .then(res => res.json())
-        .then(data => {
-          this.setState({ cart: [] });
-          this.setView('catalog', {});
-        })
-        .catch(err => console.error(err))
-    });
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ cart: [] });
+        this.setView('catalog', {});
+      })
+      .catch(err => console.error(err));
   }
 
   render() {

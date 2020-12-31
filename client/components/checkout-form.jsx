@@ -10,6 +10,8 @@ export default class CheckoutForm extends React.Component {
       address: ''
     };
     this.setViewCheckout = this.setViewCheckout.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   setViewCheckout() {
@@ -18,6 +20,12 @@ export default class CheckoutForm extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.id]: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.placeOrder(this.state);
+    this.setState({ name: '', card: '', address: '' });
   }
 
   render() {
@@ -39,9 +47,9 @@ export default class CheckoutForm extends React.Component {
             <label htmlFor="name">Name</label>
             <input type="text" id="name" className="mb-4" value={this.state.name} onChange={this.handleChange} />
             <label htmlFor="creditCard">Credit Card</label>
-            <input type="text" id="creditCard" className="mb-4" value={this.state.creditCard} onChange={this.handleChange} />
+            <input type="text" id="card" className="mb-4" value={this.state.card} onChange={this.handleChange} />
             <label htmlFor="shippingAddress">Shipping Address</label>
-            <textarea type="textarea" id="shippingAddress" className="mb-4" value={this.state.shippingAddress} onChange={this.handleChange} />
+            <textarea type="textarea" id="address" className="mb-4" value={this.state.address} onChange={this.handleChange} />
             <div className="d-flex justify-content-between">
               <div className="hover text-muted mb-4 pt-0 px-0 btn d-flex justify-content-start" onClick={this.setViewCheckout}>&lt; Back to catalog</div>
             </div>
