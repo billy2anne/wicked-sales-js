@@ -16,6 +16,10 @@ export default class CheckoutForm extends React.Component {
     this.props.view('catalog', {});
   }
 
+  handleChange(e) {
+    this.setState({ [e.target.id]: e.target.value });
+  }
+
   render() {
     if (this.props.cart === 0) {
       return (
