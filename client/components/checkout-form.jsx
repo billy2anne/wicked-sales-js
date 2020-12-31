@@ -9,7 +9,11 @@ export default class CheckoutForm extends React.Component {
       card: '',
       address: ''
     };
+    this.setViewCheckout = this.setViewCheckout.bind(this);
+  }
 
+  setViewCheckout() {
+    this.props.view('catalog', {});
   }
 
   render() {
@@ -35,7 +39,7 @@ export default class CheckoutForm extends React.Component {
             <label htmlFor="shippingAddress">Shipping Address</label>
             <textarea type="textarea" id="shippingAddress" className="mb-4" value={this.state.shippingAddress} onChange={this.handleChange} />
             <div className="d-flex justify-content-between">
-              <div className="hover text-muted mb-4 pt-0 px-0 btn d-flex justify-content-start" onClick={this.setViewMenu}>&lt; Back to catalog</div>
+              <div className="hover text-muted mb-4 pt-0 px-0 btn d-flex justify-content-start" onClick={this.setViewCheckout}>&lt; Back to catalog</div>
             </div>
             <div>
               <button type="button" className="btn btn-primary" id="order" onClick={this.handleSubmit}>Place Order</button>
